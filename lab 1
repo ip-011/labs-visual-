@@ -1,17 +1,36 @@
 using System;
 
-public class Kata
+namespace MyApp1
 {
-    public static long QueueTime(int[] customers, int n)
+
+    class Program
     {
-        var tiles = new int[n];
-
-        for (int i = 0; i < customers.Length; i++)
+        static void Main(string[] args)
         {
-            tiles[0] += customers[i];
-            Array.Sort(tiles);
+            int[] a = new int[3] { 5, 3, 4 };
+            Console.WriteLine(HW1.QueueTime(a, 1));
+            //int[] a = new int[4] { 10, 2, 3, 3 };
+            //Console.WriteLine(HW1.QueueTime(a, 2));
+            //int[] a = new int[3] { 2, 3, 10 };
+            //Console.WriteLine(HW1.QueueTime(a, 2));
         }
-
-        return tiles[n - 1];
     }
+
+    public class HW1
+    {
+        public static long QueueTime(int[] customers, int n)
+        {
+            var place = new int[n];
+
+            for (int i = 0; i < customers.Length; i++)
+            {
+                place[0] += customers[i];
+                Array.Sort(place);
+            }
+
+            return place[n - 1];
+        }
+    }
+
+
 }
